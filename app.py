@@ -107,7 +107,6 @@ with c2:
     )
 
 if st.button("Predict", use_container_width=True):
-    # Enna thaan back-end la UI label maathnaalum, model kulla 0, 1, 2 nu numbers thaan poga vaikiren da!
     x = np.array([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
     x = scaler.transform(x)
     pred = model.predict(x)[0]
@@ -117,7 +116,7 @@ if st.button("Predict", use_container_width=True):
         st.error("Heart Disease Detected")
         st.progress(int(prob[1] * 100))
         st.metric("Risk", f"{prob[1] * 100:.2f}%")
-        st.balloons()
+        #st.balloons()
     else:
         st.success("No Heart Disease Detected")
         st.progress(int(prob[0] * 100))
